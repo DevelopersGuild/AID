@@ -1,4 +1,4 @@
--- courses table
+-- Courses table
 
 CREATE TABLE Courses(
   id           INT,

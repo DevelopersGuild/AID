@@ -1,4 +1,4 @@
--- majors table
+-- Majors table
 
 CREATE TABLE Majors(
   id             INT,

@@ -1,4 +1,4 @@
--- schools table
+-- Schools table
 
 CREATE TABLE Schools(
   id           INT,
