@@ -5,7 +5,7 @@ module.exports = function(sequelize, DataTypes) {
     classMethods: {
       associate: function(models) {
         // associations can be defined here
-        Star.hasOne(models.Major);
+        Star.belongsTo(models.Major);
         Star.belongsToMany(models.User, { through: 'UserStar' });
       }
     }

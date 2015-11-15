@@ -9,7 +9,7 @@ var UsersController = {
 
   show: function(req, res, next) {
     if (req)
-    res.send(res.user.updatedAt+" wow so show");
+    res.send(res.user.email+" wow so show");
   },
 
   retrieve_id: function(req, res, next, id) {

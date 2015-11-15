@@ -27,7 +27,7 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-// ----- User controller routes
+// ----- controller indices with plural-type routes
 router.get('/users', controllers.UsersController.index);
 
 module.exports = router;
