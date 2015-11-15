@@ -25,7 +25,7 @@ var server = http.createServer(app);
 /**
  * Turn on automatic sequelize functions.
  */
-models.sequelize.sync().then(function () {
+models.sequelize.sync({force: true}).then(function () {
   server.listen(port);
   server.on('error', onError);
   server.on('listening', onListening);
