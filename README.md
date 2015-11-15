@@ -18,3 +18,7 @@ With goals to bring a similar experience to the mobile app platform, [AndroidAss
 ## For Contributors
 
 If you're interested in contributing and want to get familiar with the code-base, take a look at the AID [wiki](https://github.com/DevelopersGuild/AID/wiki).
+
+## License
+
+This project is licensed under the MIT License. See [LICENSE.txt](./LICENSE.txt) for more details.
