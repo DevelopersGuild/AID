@@ -17,7 +17,30 @@ With goals to bring a similar experience to the mobile app platform, [AndroidAss
 
 ## For Contributors
 
-If you're interested in contributing and want to get familiar with the code-base, take a look at the AID [wiki](https://github.com/DevelopersGuild/AID/wiki).
+AID was designed with a basic MVC pattern on top of the Express framework. The project uses [Sequelize](http://docs.sequelizejs.com/en/latest/) for the models, Express' default view functionality, and JavaScript classes that act as basic controllers.
+
+### Models
+
+In a little more depth, the database this project uses is MySQL and Sequelize provides a high-level ORM to interact with that database. If you're looking for a quick peek at the DB schema, take a look at <db/schema.sql>, which reflects the original schema design before Sequelize was considered. Models and migrations should be designed using Sequelize's syntax; an easier way to get going with this would be to install [sequelize-cli](http://docs.sequelizejs.com/en/latest/docs/migrations/#the-cli) for commands that give access to automatic generation of model skeletons. Migrations can also be generated using sequelize-cli and, in fact, are generated automatically when generating a new model. Consult the Sequelize [API](http://docs.sequelizejs.com/en/latest/api/sequelize/) for more help on designing models and migrations.
+
+### Views
+
+Again, AID uses Express' default view functionality. Call/render views in their respectful controllers (and NOT in a routes file). This separates the logic from the middleware that handles requests.
+
+### Controllers
+
+As for controllers, if one is being designed and uses a specific model, be sure to name the file of that controller the plural of its model's filename (i.e. models/user.js -> controllers/users.js). As of the time of this writing, controllers are currently designed only as basic JavaScript classes with the intention of having RESTful methods. This may change in the future to something that still incorporates REST practices, but is a little more refined.
+
+### Routes
+
+For each RESTful controller, add a route file that matches its controller's filename in the routes directory and specify which method of the controller should be called for each route. The point of keeping the handling of routes separate from the controllers is, again, to separate the controller's logic from the router code to handle requests. Separation results in a much lower possibility of others witnessing twisted, evil, destructive, spaghetti code mashed together or in, put briefly, cleaner code.
+
+Be sure to add top-level routing information in app.js i.e.
+
+```
+var users = require('./routes/users');
+app.use('/user', users);
+```
 
 ## License
 
