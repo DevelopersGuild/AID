@@ -6,9 +6,16 @@ module.exports = function(sequelize, DataTypes) {
     classMethods: {
       associate: function(models) {
         // associations can be defined here
-        Major.belongsToMany(models.School, {through: 'SchoolMajor'});
+        Major.hasOne(models.Articulation);
+        Major.belongsTo(
+          models.School, { as: 'iaSchool' }
+        );
+        Major.belongsTo(
+          models.School, { as: 'oiaSchool' }
+        );
       }
-    }
+    },
+    underscored: true
   });
   return Major;
 };

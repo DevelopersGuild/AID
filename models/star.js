@@ -8,7 +8,8 @@ module.exports = function(sequelize, DataTypes) {
         Star.belongsTo(models.Major);
         Star.belongsToMany(models.User, { through: 'UserStar' });
       }
-    }
+    },
+    underscored: true
   });
   return Star;
 };

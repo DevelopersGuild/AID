@@ -6,8 +6,10 @@ module.exports = function(sequelize, DataTypes) {
       associate: function(models) {
         // associations can be defined here
         Articulation.belongsTo(models.Major);
+        Articulation.belongsToMany(models.Course, { through: 'ArticulationCourses' });
       }
-    }
+    },
+    underscored: true
   });
   return Articulation;
 };

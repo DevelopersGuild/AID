@@ -30,4 +30,6 @@ router.get('/', function(req, res, next) {
 // ----- controller indices with plural-type routes
 router.get('/users', controllers.UsersController.index);
 
+router.get('/assist_scrape', controllers.AssistScrapeController.init_db);
+
 module.exports = router;
